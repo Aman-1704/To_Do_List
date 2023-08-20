@@ -1,3 +1,4 @@
+// here we use mongoose to connect the database and setup the database
 const mongoose = require('mongoose');
 main().catch(err => console.log(err));
 

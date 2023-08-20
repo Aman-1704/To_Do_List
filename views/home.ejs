@@ -1,9 +1,11 @@
+<!-- we are creating here home.ejs file which contain to display our home page to intract with user -->
 <html>
 <head>
     <link href="home.css" rel="stylesheet" type="text/css">
     <title>
         <%= tittle %>
     </title>
+    <!-- here I used bootstrap for css -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -13,6 +15,7 @@
 <body>
     <section class="container">
         <h1 align="center">TODO APP</h1>
+        <!-- form for create task -->
         <form action="/create-task" method="POST">
 
             <table class="table">
@@ -53,8 +56,9 @@
                   
         </form>
     </section>
-    <div>          
+    <div>    
         <h1 align="center">TASKS LIST</h1>
+        <!-- form for tasks list -->
         <form action="/delete-task" method="GET">
             <table class="table">
                 <thead>
@@ -68,9 +72,9 @@
                 <% for(let i of task) { %>
                     <tr>
                         <td> <input type="checkbox" name="<%= i._id %>" ></td>
-                        <td> <p id="task-description"><%= i.description %></td>
-                        <td><p id="task-category"></p>: <%= i.category %></td>
-                        <td><p id="due-date">: <%= i.date %></p></td>
+                        <td> <p id="task-description"><%= i.description %></p></td>
+                        <td><p id="task-category"><%= i.category %></p></td>
+                        <td><p id="due-date"><%= i.date %></p></td>
                     </tr>
                 <% } %>
             </table>
@@ -80,6 +84,7 @@
             </div>
         </form>
     </div>
-    <footer style="margin-top: 200px; background-color: lightblue; text-align: center;" >  Aman Singh</footer>
+    <!-- footer for home page -->
+    <footer style="margin-top: 200px; background-color: lightblue; text-align: center;" >  Aman Singh All rights reserved</footer>
 </body>
 </html>

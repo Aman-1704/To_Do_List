@@ -1,12 +1,17 @@
+// express
 const express = require('express');
+// port
 const port = 7000;
+// database
 const db = require('./config/mongoose');
+// Task
 const Task = require('./models/task');
 const app = express();
 app.use(express.urlencoded());
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+// this is for render in home
 app.get('/', function(req, res){
 
     Task.find().then((task) => {
@@ -19,6 +24,7 @@ app.get('/', function(req, res){
     });
 });
 
+// this is for adding task
 app.post('/create-task', function(req, res){
 
     Task.create({
@@ -33,6 +39,8 @@ app.post('/create-task', function(req, res){
         return;
     });
 });
+
+// this is for deleting the task
 app.get('/delete-task', async function(req, res){
 
     let id = req.query;
@@ -52,11 +60,10 @@ app.get('/delete-task', async function(req, res){
     
 
 });
-
+// to connect with express
 app.listen(port, (err)=>{
     if(err){
         console.log('Error in running the server:', err);
     }
-
     console.log('server is running on the port:', port);
 });
